@@ -54,10 +54,17 @@ window.onload = () => {
           firstLineArray = stringToNumber(secondLine.split(' '))
           secondLineArray = stringToNumber(secondLine.split(' '))
 
+          daysOfAverageHomeSalePrice = firstLineArray[0];
+          fixedWindowSize = firstLineArray[1];
+          windowsNeedCompute = daysOfAverageHomeSalePrice - fixedWindowSize + 1;
+
+
           fixedWindowArrays = splitArrayIntoFixedWindows(secondLineArray, 3, 3)
 
-          for (var i = 0; i < fixedWindowArrays.length; i++) {
-            fileDisplayArea.innerHTML += '<div>' + calculateSubrangeNumber(fixedWindowArrays[i]) + '</div'
+          if (1 <= daysOfAverageHomeSalePrice <= 200000 && 1 <= fixedWindowSize <= daysOfAverageHomeSalePrice) {
+            for (var i = 0; i < fixedWindowArrays.length; i++) {
+              fileDisplayArea.innerHTML += '<div>' + calculateSubrangeNumber(fixedWindowArrays[i]) + '</div'
+            }
           }
 
 				}
