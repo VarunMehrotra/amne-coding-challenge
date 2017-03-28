@@ -59,7 +59,7 @@ window.onload = () => {
           windowsNeedCompute = daysOfAverageHomeSalePrice - fixedWindowSize + 1;
 
 
-          fixedWindowArrays = splitArrayIntoFixedWindows(secondLineArray, 3, 3)
+          fixedWindowArrays = splitArrayIntoFixedWindows(secondLineArray, fixedWindowSize, windowsNeedCompute)
 
           if (1 <= daysOfAverageHomeSalePrice <= 200000 && 1 <= fixedWindowSize <= daysOfAverageHomeSalePrice) {
             for (var i = 0; i < fixedWindowArrays.length; i++) {
