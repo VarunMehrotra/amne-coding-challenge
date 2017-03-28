@@ -51,7 +51,7 @@ window.onload = () => {
           let firstLine = reader.result.split('\n')[0]
           let secondLine = reader.result.split('\n')[1]
 
-          firstLineArray = stringToNumber(secondLine.split(' '))
+          firstLineArray = stringToNumber(firstLine.split(' '))
           secondLineArray = stringToNumber(secondLine.split(' '))
 
           daysOfAverageHomeSalePrice = firstLineArray[0];
@@ -65,6 +65,8 @@ window.onload = () => {
             for (var i = 0; i < fixedWindowArrays.length; i++) {
               fileDisplayArea.innerHTML += '<div>' + calculateSubrangeNumber(fixedWindowArrays[i]) + '</div'
             }
+          } else {
+            fileDisplayArea.innerText = "Too many days!";
           }
 
 				}
