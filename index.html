@@ -7,15 +7,24 @@
 </head>
 
 <body>
-	<div>
-
-		<h1>Amne Coding Challenge</h1>
-		<div>
-			Select a text file:
-			<input type="file" id="fileInput">
+	<div class="container">
+		<div class="page-header">
+			<h1>Amne Coding Challenge</h1>
 		</div>
-		<div id="fileDisplayArea"><div>
-
+		<!-- <div class="row panel col-xs-6 col-xs-offset-3"> -->
+			<div class="row col-xs-6 col-xs-offset-3">
+				<div class="row panel panel-primary">
+					<div class="panel-heading">Select a text file</div>
+					<input type="file" id="fileInput" class="panel-body">
+				</div>
+			</div>
+			<div class="row col-xs-6 col-xs-offset-3">
+				<div class="row panel panel-info">
+					<div class="panel-heading">Results</div>
+					<div id="fileDisplayArea" class="panel-body"></div>
+				</div>
+			</div>
+		<!-- </div> -->
 	</div>
 
 	<script src="index.js"></script>
