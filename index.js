@@ -47,26 +47,32 @@ window.onload = () => {
 			if (file.type.match(textType)) {
 				var reader = new FileReader();
 
-				reader.onload = (e) => {
+				reader.onloadend = (e) => {
+                    console.log(e.target.result)
           fileDisplayArea.innerHTML = ''
-          let firstLine = reader.result.split('\n')[0]
-          let secondLine = reader.result.split('\n')[1]
-
+          let firstLine = e.target.result.split('\n')[0]
+          let secondLine = e.target.result.split('\n')[1]
+          console.log('split at new line')
           firstLineArray = stringToNumber(firstLine.split(' '))
           secondLineArray = stringToNumber(secondLine.split(' '))
-
+          console.log('split at spaces')
           daysOfAverageHomeSalePrice = firstLineArray[0];
           fixedWindowSize = firstLineArray[1];
           windowsNeedCompute = daysOfAverageHomeSalePrice - fixedWindowSize + 1;
 
-
           fixedWindowArrays = splitArrayIntoFixedWindows(secondLineArray, fixedWindowSize, windowsNeedCompute)
+          amountOfFixedWindowArrays = fixedWindowArrays.length
+           console.log('split into fixed windows')
+           console.log(daysOfAverageHomeSalePrice, 'daysOfAverageHomeSalePrice')
+           console.log(fixedWindowSize, 'fixedWindowSize')
 
-          if (1 <= daysOfAverageHomeSalePrice <= 200000 && 1 <= fixedWindowSize <= daysOfAverageHomeSalePrice) {
-            for (var i = 0; i < fixedWindowArrays.length; i++) {
-              fileDisplayArea.innerHTML += '<div>' + calculateSubrangeNumber(fixedWindowArrays[i]) + '</div'
-            }
-          } else {
+          if (daysOfAverageHomeSalePrice <= 200000 && fixedWindowSize <= daysOfAverageHomeSalePrice) {
+            fixedWindowArrays.forEach(function (value, index) {
+                fileDisplayArea.innerHTML += '<div>' + calculateSubrangeNumber(value) + '</div'
+            })
+        } else if (daysOfAverageHomeSalePrice < 1 || fixedWindowSize < 1) {
+            fileDisplayArea.innerText = "Canot have negitive days of average home sale price or window size!";
+        } else {
             fileDisplayArea.innerText = "Too many days!";
           }
 
