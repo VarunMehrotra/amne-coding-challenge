@@ -48,6 +48,7 @@ window.onload = () => {
 				var reader = new FileReader();
 
 				reader.onload = (e) => {
+          fileDisplayArea.innerHTML = ''
           let firstLine = reader.result.split('\n')[0]
           let secondLine = reader.result.split('\n')[1]
 
