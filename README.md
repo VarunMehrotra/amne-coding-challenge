@@ -1,7 +1,9 @@
-# amne-coding-challenge
-AMNE Coding Challenge
+# AMNE Coding Challenge
 
-## how to run
+### How To Run
+
 Open index.html in Chrome
+
 Click Choose File
+
 Select one of the input.txt files
